@@ -1,7 +1,5 @@
 
-routes-ajax database
+express-to-learn
 
 collections
-  Listings
-    
-  likes
+  posts
