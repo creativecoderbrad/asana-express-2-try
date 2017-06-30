@@ -1,0 +1,32 @@
+
+
+extends layout
+
+block content 
+  
+  div.content.col-md-6
+    
+    div.add-post 
+      form(method='POST', action='/articles/add')
+        .form-group      
+          input.form-control(name='author',  placeholder="placeholder author" )
+            
+        .form-group      
+          textarea.form-control(name='body', placeholder='tell us how you feel')
+  
+        .form-group      
+          input.form-control(name='tags', placeholder="make tags by hitting enter")
+            
+        input.btn.btn-primary(type='submit', value='submit')
+
+    div.wrap 
+      each post, i in posts
+       article.post 
+          div.author-area
+            h3.post-author=post.author 
+            h3.post-date=' posted on: ' + post.posted
+          div.author-body
+            p=post.body
+            ul
+              li.tag=post.tags
+   

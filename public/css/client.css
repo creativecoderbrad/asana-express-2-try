@@ -1,0 +1,66 @@
+
+
+html, body {
+  min-width: 100%; min-height: 100%;
+  background: #e9ebee; display:block;
+}
+body {
+overflow: auto;
+}
+
+
+.navbar {
+  border-radius: 0px; background: #3b5998; border: none;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+     color: white;
+}
+
+
+
+.title {
+  padding-bottom: 15px;
+}
+
+/* home articles page */
+
+ .add-post {
+   margin-bottom: 20px;
+ }
+
+.post {
+  margin-bottom: 20px; background: white; padding: 7px;
+  padding-left: 20px; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+}
+
+/* author area */
+
+.author-area {
+  overflow: auto; padding: 7px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.post-author, .post-date {
+ font-size: 14px; width: 50%; float: left;
+}
+h3.post-date {
+text-align: right; float: right;
+}
+
+/* body area */
+
+.author-body {
+  overflow: auto; padding: 13px 7px 7px 7px;
+}
+.author-body p {
+color: #958a8a;
+}
+.author-body ul {
+  margin-top: 12px;
+}
+
+li.tag {
+    border: 1px solid #cfdeff;  white-space:nowrap;
+    display: inline-block; padding: 5px; border-radius: 4px;
+}

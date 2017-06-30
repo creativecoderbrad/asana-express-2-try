@@ -1,0 +1,26 @@
+{
+  "name": "practise-route-ajax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativecoderbrad/practise-crud-rest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/creativecoderbrad/practise-crud-rest/issues"
+  },
+  "homepage": "https://github.com/creativecoderbrad/practise-crud-rest#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.8",
+    "pug": "^2.0.0-rc.2"
+  }
+}
