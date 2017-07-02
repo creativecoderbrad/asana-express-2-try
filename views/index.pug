@@ -30,7 +30,7 @@ block content
         div.input-wrap
           input#tag-input(type="text",name='tags', autocomplete="off" placeholder="make tags by hitting enter")
       input#enter.btn.btn-primary(type="button", value="enter")    
-  
+
   
     div.wrap 
       each post, i in posts
@@ -40,7 +40,8 @@ block content
             h3.post-date=' posted on: ' + post.posted
           div.author-body
             p=post.body
-            ul
-              li.tag=post.tags
+            ul  
+               each tag in post.tags
+                li.post-tag=tag
    
        

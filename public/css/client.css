@@ -1,5 +1,5 @@
 
- 
+
 
 .tag-editor {
    width: 100%;
@@ -116,7 +116,13 @@ color: #958a8a;
   margin-top: 12px;
 }
 
-li.tag {
-    border: 1px solid #cfdeff;  white-space:nowrap;
-    display: inline-block; padding: 5px; border-radius: 4px;
+li.post-tag {
+  display: inline-block;
+  color: #39739d;
+  margin-right: 7px;
+  background-color: #E1ECF4;
+  padding: 5px;
+  font-size: 13px;
+  border-radius: 3px;
+
 }
