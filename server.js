@@ -32,7 +32,7 @@ app.set('view engine', 'pug');
 
 
 // body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
 
@@ -47,7 +47,6 @@ app.get('/', function(req, res) {
 
     posts.reverse();
 
-
     res.render('index', {
       posts: posts
     });
@@ -57,7 +56,7 @@ app.get('/', function(req, res) {
 
 // add submit post route
 
-app.post('/articles/add', function(req, res){
+app.post('/posts/add', function(req, res){
 
   // time stamp
 
@@ -69,6 +68,10 @@ app.post('/articles/add', function(req, res){
     var hour = time.getHours();
     var min  = time.getMinutes();
     var sec  = time.getSeconds();
+
+    if (min < 10) {
+      min = '0' + min;
+    }
 
     if (sec < 10) {
       sec = '0' + sec;
@@ -84,7 +87,9 @@ app.post('/articles/add', function(req, res){
   post.author = req.body.author;
   post.posted = time();
   post.body = req.body.body;
-  post.tags = req.body.tags;
+
+  // try adding static built array
+  post.tags = ['blessed', 'happy'];
 
   post.save( function (err) {
     if (err) {
@@ -95,15 +100,25 @@ app.post('/articles/add', function(req, res){
       res.redirect('/');
     }
   });
-
-
 });
 
 
 
+app.post('/ajax', function (req, res){
+
+   var tags = req.body.arr;
+
+   for (var currTag = 0; currTag < tags.length; currTag ++) {
+     console.log(tags[currTag]);
+   }
+
+   res.json({ success: true  });
+
+});
+
 // start server
 app.listen(3000, function(req, res) {
-  console.log('started at ' );
+
 });
 
 

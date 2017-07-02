@@ -7,18 +7,31 @@ block content
   div.content.col-md-6
     
     div.add-post 
-      form(method='POST', action='/articles/add')
+      form(method='POST', action='/posts/add')
         .form-group      
           input.form-control(name='author',  placeholder="placeholder author" )
             
         .form-group      
           textarea.form-control(name='body', placeholder='tell us how you feel')
-  
+        
         .form-group      
           input.form-control(name='tags', placeholder="make tags by hitting enter")
             
         input.btn.btn-primary#submit-post(type='submit', value='submit post')
-
+     
+    
+    form 
+      div.tag-editor
+        span.tags
+          span.each-tag wassap theere
+           span.del-tag 
+          span.each-tag wassap
+           span.del-tag 
+        div.input-wrap
+          input#tag-input(type="text",name='tags', autocomplete="off" placeholder="make tags by hitting enter")
+      input#enter.btn.btn-primary(type="button", value="enter")    
+  
+  
     div.wrap 
       each post, i in posts
        article.post 
@@ -30,3 +43,4 @@ block content
             ul
               li.tag=post.tags
    
+       

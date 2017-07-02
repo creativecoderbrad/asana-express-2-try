@@ -1,4 +1,60 @@
 
+ 
+
+.tag-editor {
+   width: 100%;
+   overflow: hidden;
+   outline: 1px solid #c8ccd0;
+
+   background-color: #FFF;
+   position: relative;
+   overflow: hidden;
+   white-space: nowrap;
+   height: 40px;
+}
+
+.tags {
+   float: left;
+}
+
+.each-tag {
+  display: inline-block; color: #39739d;  margin: 7px 0 0 5px;
+    background-color: #E1ECF4; padding: 5px;     font-size: 13px;
+        border-radius: 3px;
+}
+
+#tag-input {
+   width: 100%; height: 100%;
+   overflow: hidden;
+     border: none;
+     padding-left: 10px;
+     color: #737373;
+     outline:none;
+     margin-top: 0px;
+}
+.input-wrap {
+   display: block;
+   overflow: hidden;
+   height: 100%;
+}
+
+span.del-tag {
+  width: 10px;  margin: 1px 2px 0 7px; border-radius: 4px;
+  cursor: pointer; background: #2581c3; padding: 2px 5px 2px 0px;
+    text-align: center;
+
+}
+span.del-tag::after {
+  font-size: 11px; position: relative; top: 0px;
+  content: "✖"; color: white;
+}
+
+
+#enter {
+  margin-top: 10px;
+}
+
+
 
 html, body {
   min-width: 100%; min-height: 100%;
