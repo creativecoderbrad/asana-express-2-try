@@ -37,7 +37,12 @@ app.get('/', function(req, res) {
   ]
 
   var results = [];
- 
+
+    var a = ["a", "b", "c"];
+  a.forEach(function(entry) {
+      console.log(entry);
+  });
+
   for (var i = 0; i < cottages.length; i++) {
 
     var curr = cottages[i];
