@@ -6,29 +6,19 @@ block content
   
   div.content.col-md-6
     
-    div.add-post 
-      form(method='POST', action='/posts/add')
-        .form-group      
-          input.form-control(name='author',  placeholder="placeholder author" )
-            
-        .form-group      
-          textarea.form-control(name='body', placeholder='tell us how you feel')
-        
-        .form-group      
-          input.form-control(name='tags', placeholder="make tags by hitting enter")
-            
-        input.btn.btn-primary#submit-post(type='submit', value='submit post')
-     
-    
     form 
-      div.tag-editor
-        span.tags
-          span.each-tag wassap theere
-           span.del-tag 
-          span.each-tag wassap
-           span.del-tag 
-        div.input-wrap
-          input#tag-input(type="text",name='tags', autocomplete="off" placeholder="make tags by hitting enter")
+      .form-group      
+        input#author.form-control(name='author',  placeholder="placeholder author" )
+          
+      .form-group      
+        textarea#body.form-control(name='body', placeholder='explain what work you need')
+      
+      div#tag-editor.form-group  
+        span#tags
+          //- span.each-tag wassap theere
+          //-  span.del-tag 
+        input#tag-input(type="text",name='tags', autocomplete="off" placeholder="with what language? (make tags by pressing enter)")
+          
       input#enter.btn.btn-primary(type="button", value="enter")    
 
   

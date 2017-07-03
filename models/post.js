@@ -19,6 +19,9 @@ var postsSchema = mongoose.Schema({
   tags: {
     type: Array,
     required: true
+  },
+  likes: {
+    Type: Number
   }
 
 });

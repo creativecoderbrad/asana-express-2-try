@@ -69,13 +69,9 @@ app.post('/posts/add', function(req, res){
     var min  = time.getMinutes();
     var sec  = time.getSeconds();
 
-    if (min < 10) {
-      min = '0' + min;
-    }
+    if (min < 10) {   min = '0' + min;  }
 
-    if (sec < 10) {
-      sec = '0' + sec;
-    }
+    if (sec < 10) {   sec = '0' + sec;  }
 
     var fulltime = days[getday] + ' at ' + hour + ':' + min + ':' + sec
     return fulltime;
@@ -87,10 +83,9 @@ app.post('/posts/add', function(req, res){
   post.author = req.body.author;
   post.posted = time();
   post.body = req.body.body;
+  post.tags = req.body.arr;
 
-  // try adding static built array
-  post.tags = ['blessed', 'happy'];
-
+ // submit new object to database
   post.save( function (err) {
     if (err) {
       console.log(err);
@@ -104,17 +99,6 @@ app.post('/posts/add', function(req, res){
 
 
 
-app.post('/ajax', function (req, res){
-
-   var tags = req.body.arr;
-
-   for (var currTag = 0; currTag < tags.length; currTag ++) {
-     console.log(tags[currTag]);
-   }
-
-   res.json({ success: true  });
-
-});
 
 // start server
 app.listen(3000, function(req, res) {
