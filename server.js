@@ -35,14 +35,12 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
 app.use(bodyParser.json())
-
 // set public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 // home route
 app.get('/', function(req, res) {
-
   Posts.find({ }, function (err, posts) {
 
     posts.reverse();
@@ -55,11 +53,9 @@ app.get('/', function(req, res) {
 });
 
 // add submit post route
-
 app.post('/posts/add', function(req, res){
 
   // time stamp
-
   function time () {
     var time = new Date();
     var days = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
@@ -97,7 +93,10 @@ app.post('/posts/add', function(req, res){
   });
 });
 
+// like route
+app.post('/posts/like', function(req, res) {
 
+});
 
 
 // start server

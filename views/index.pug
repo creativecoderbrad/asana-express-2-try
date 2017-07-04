@@ -26,12 +26,15 @@ block content
       each post, i in posts
        article.post 
           div.author-area
-            h3.post-author=post.author 
-            h3.post-date=' posted on: ' + post.posted
+            div.post-author
+               h3=post.author 
+            div.post-date
+               h3=' posted on: ' + post.posted
           div.author-body
             p=post.body
             ul  
                each tag in post.tags
                 li.post-tag=tag
-   
-       
+          div.extra
+           span.like 
+             

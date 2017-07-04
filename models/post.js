@@ -21,7 +21,8 @@ var postsSchema = mongoose.Schema({
     required: true
   },
   likes: {
-    Type: Number
+    Type: Number,
+    default: 0
   }
 
 });
