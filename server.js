@@ -11,7 +11,7 @@ var db = mongoose.connection;
 
 
 //check connection
-db.once('openUri', function(){
+db.once('openUri', function() {
   console.log('Connected to mongoDB ...');
 });
 
@@ -81,7 +81,7 @@ app.post('/posts/add', function(req, res){
   post.body = req.body.body;
   post.tags = req.body.arr;
 
- // submit new object to database
+  // submit new object to database
   post.save( function (err) {
     if (err) {
       console.log(err);
