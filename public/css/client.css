@@ -70,7 +70,8 @@ span.del-tag::after {
 
 html, body {
   min-width: 100%; min-height: 100%;
-  background: #e9ebee; display:block;
+  background: #e9ebee;
+  display:block; 
 }
 body {
  overflow: auto;
@@ -115,7 +116,7 @@ width: 50%; display: inline-block;
 }
 
 .post-author h3, .post-date h3 {
- font-size: 14px; display: inline-block; color: #5477ad;
+ font-size: 13px; display: inline-block; color: #5477ad;
  background: #f5f1f1; padding: 5px 5px 7px 5px;
  border-radius: 5px;
 }
@@ -149,4 +150,49 @@ li.post-tag {
 div.extra {
   overflow: auto; border: 1px solid #e4e4e4; margin-top: 10px;
   width: 100%; height: 45px; border-radius: 5px;
+}
+
+/* like counter */
+
+.like-box {
+  width: 47px; height: 100%;  border-radius: 3px; border-right: 1px solid #e4e4e4;
+  position: relative;  text-align: center; float: left;
+}
+
+i.like {
+  display: inline-block; cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;  /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+
+  transform: translate(-50%, -50%); /* This is a shorthand of
+                                       translateX(-50%) and translateY(-50%) */
+}
+
+.like-amount {
+  width: 40px; height: 100%;  border-radius: 3px; border-right: 1px solid #e4e4e4;
+  position: relative;  text-align: center;
+  float: left;
+}
+
+span.like-number {
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%); /* This is a shorthand of */
+
+}
+
+
+.view-post {
+  height: 100%;  border-radius: 3px; border-left: 1px solid #e4e4e4;
+  position: relative;  text-align: center; float: right;
+}
+
+a.view-post-text {
+  height: 100%; display: block; padding: 11px 9px 9px 9px;
 }

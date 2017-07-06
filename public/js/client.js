@@ -1,3 +1,4 @@
+
 document.addEventListener('click', function(e) {
     // focus on input
     var divFocus = document.getElementById('tag-editor');

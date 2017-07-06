@@ -14,14 +14,33 @@ $(function () {
              url: '/posts/add',
              type: 'POST',
              data: {  arr: tagstopush, author: author, body: body  },
-             success: function(data){
-                window.location.href= '/';
-             },
-             error: function(err){
-                alert('text status '+ err );
-             }
+             success: function (data) {  window.location.href= '/'; },
+             error: function (err) {  alert('text status '+ err );  }
       });
    });
 });
 
 // like a post
+
+$(function () {
+
+    $('.like').click(function(e) {
+
+     $target = $(e.target);
+     // post id for route url
+     const id = $target.attr('data-id');
+
+     $.ajax ({
+       url: '/posts/like/'+id,
+       type: 'POST',
+       success: function () { window.location.href= '/';      },
+       error: function (err) {  alert('text status '+ err );  }
+
+     })
+
+     //  if(this.style.color = 'black') {
+     //       this.style.color = 'red';
+     //  }
+
+   });
+});

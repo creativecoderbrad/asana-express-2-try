@@ -78,8 +78,9 @@ app.post('/posts/add', function(req, res){
   // our parsed data
   post.author = req.body.author;
   post.posted = time();
-  post.body = req.body.body;
-  post.tags = req.body.arr;
+  post.body  = req.body.body;
+  post.tags  = req.body.arr;
+  post.likes = 0;
 
   // submit new object to database
   post.save( function (err) {
@@ -93,10 +94,54 @@ app.post('/posts/add', function(req, res){
   });
 });
 
-// like route
-app.post('/posts/like', function(req, res) {
+// single post route
+app.get('/post/author/:id', function(req, res) {
+  Posts.findById( req.params.id, function (err, post ){
+     res.render('post', {
+       post: post
+     });
+    console.log(post);
+  });
+});
+
+// like a post
+
+ app.post('/posts/like/:id', function(req, res) {
+
+   var query = { _id:req.params.id }
+
+
+  Posts.findById( query, function (err, post ) {
+
+      var curr = post.likes;
+      post.likes = curr + 1;
+
+      Posts.update( query, post, function(err) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.redirect('/');
+      }
+    });
+
+  });
+
+
+
+
+  // Posts.update(query, post, function(err){
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     else {
+  //       res.redirect('/');
+  //       console.log(post);
+  //     }
+  //   });
 
 });
+
 
 
 // start server

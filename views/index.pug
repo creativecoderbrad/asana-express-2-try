@@ -14,7 +14,7 @@ block content
         textarea#body.form-control(name='body', placeholder='explain what work you need')
       
       div#tag-editor.form-group  
-        span#tags
+        iv#tags
           //- span.each-tag wassap theere
           //-  span.del-tag 
         input#tag-input(type="text",name='tags', autocomplete="off" placeholder="with what language? (make tags by pressing enter)")
@@ -34,7 +34,16 @@ block content
             p=post.body
             ul  
                each tag in post.tags
-                li.post-tag=tag
+                li.post-tag(data-id=tag)=tag
           div.extra
-           span.like 
+           div.like-box
+            i.like.fa.fa-heart-o(data-id=post._id, aria-hidden='true')
+           div.like-amount
+            span.like-number=post.likes
+           div.view-post 
+             a.view-post-text(href="/post/"+"author/"+post._id) view post
              
+block scripts 
+  
+  script(src='/js/client.js')
+  script(src='/js/ajax.js')
