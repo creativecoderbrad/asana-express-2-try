@@ -71,7 +71,7 @@ span.del-tag::after {
 html, body {
   min-width: 100%; min-height: 100%;
   background: #e9ebee;
-  display:block; 
+  display:block;
 }
 body {
  overflow: auto;
@@ -89,6 +89,13 @@ body {
 
 
 /* home articles page */
+
+div.content {
+   margin-left:auto;
+   margin-right:auto;
+   display:block;
+   float: none;
+}
 
 .wrap {
   margin-top: 20px;
@@ -187,7 +194,6 @@ span.like-number {
 
 }
 
-
 .view-post {
   height: 100%;  border-radius: 3px; border-left: 1px solid #e4e4e4;
   position: relative;  text-align: center; float: right;
@@ -195,4 +201,13 @@ span.like-number {
 
 a.view-post-text {
   height: 100%; display: block; padding: 11px 9px 9px 9px;
+}
+
+.loadmore {
+text-align: center; width: 100%; margin: 50px 0 50px 0;
+}
+
+.loadmore span {
+  display: inline-block; padding: 10px; background: white;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15); cursor: pointer;
 }

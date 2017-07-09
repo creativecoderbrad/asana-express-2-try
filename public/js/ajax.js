@@ -1,5 +1,22 @@
 
+// making a get request
 
+$(function(){
+
+  $.ajax ({
+
+  url: '/posts/loadmore',
+  type: 'GET',
+  success: function(posts){
+
+   $.each(posts, function(i, post) {
+     console.log( post.author, post.body);
+   });
+
+  }
+
+  });
+});
 
 // submit form post
 $(function () {

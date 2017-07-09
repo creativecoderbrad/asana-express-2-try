@@ -9,8 +9,9 @@ html
     link(rel='stylesheet' href='/css/client.css')
   body
     
-    nav.navbar.navbar-inverse.navbar 
-      .container
+
+    nav.navbar.navbar-inverse
+      .container 
         .navbar-header
           button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
             span.sr-only Toggle navigation
@@ -24,13 +25,17 @@ html
               a(href='/') Home
             li
               a(href='/') Profile
-         
+          form.navbar-form.navbar-left
+           .form-group
+             input.form-control(type='text', placeholder='Search')
+           button.btn.btn-default(type='submit') Submit
+
+
     .container
  
       block content
         
     footer
-     
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src="https://use.fontawesome.com/0926cb5894.js")

@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const morgan = require('morgan');
 
 mongoose.connect('mongodb://localhost/express-to-learn');
 var db = mongoose.connection;
@@ -23,6 +23,9 @@ db.on('error', function(err){
 // initialiase app
 var app = express();
 
+// // log requests with morgan
+// app.use(morgan('dev'));
+
 // bring in models
 var Posts = require('./models/post')
 
@@ -37,6 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 // set public folder
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // home route
@@ -100,7 +104,6 @@ app.get('/post/author/:id', function(req, res) {
      res.render('post', {
        post: post
      });
-    console.log(post);
   });
 });
 
@@ -128,19 +131,22 @@ app.get('/post/author/:id', function(req, res) {
   });
 
 
-
-
-  // Posts.update(query, post, function(err){
-  //     if (err) {
-  //       console.log(err);
-  //     }
-  //     else {
-  //       res.redirect('/');
-  //       console.log(post);
-  //     }
-  //   });
-
 });
+
+// make a get request from ajax
+
+app.get("/posts/loadmore", function(req, res) {
+
+  Posts.find({ }, function (err, posts) {
+
+    posts.reverse();
+
+    res.send(posts);
+
+  });
+})
+
+// search posts / tags
 
 
 
