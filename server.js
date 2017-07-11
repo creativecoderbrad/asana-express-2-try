@@ -21,7 +21,7 @@ db.on('error', function(err){
 });
 
 // initialiase app
-var app = express();
+const app = express();
 
 // // log requests with morgan
 // app.use(morgan('dev'));
@@ -55,6 +55,7 @@ app.get('/', function(req, res) {
 
   });
 });
+
 
 // add submit post route
 app.post('/posts/add', function(req, res){
@@ -98,6 +99,8 @@ app.post('/posts/add', function(req, res){
   });
 });
 
+
+
 // single post route
 app.get('/post/author/:id', function(req, res) {
   Posts.findById( req.params.id, function (err, post ){
@@ -107,53 +110,16 @@ app.get('/post/author/:id', function(req, res) {
   });
 });
 
-// like a post
-
- app.post('/posts/like/:id', function(req, res) {
-
-   var query = { _id:req.params.id }
 
 
-  Posts.findById( query, function (err, post ) {
+ 
 
-      var curr = post.likes;
-      post.likes = curr + 1;
+// routes
 
-      Posts.update( query, post, function(err) {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        res.redirect('/');
-      }
-    });
-
-  });
-
-
-});
-
-// make a get request from ajax
-
-app.get("/posts/loadmore", function(req, res) {
-
-  Posts.find({ }, function (err, posts) {
-
-    posts.reverse();
-
-    res.send(posts);
-
-  });
-})
-
-// search posts / tags
-
-
+var posts = require('./routes/posts');
+app.use('/posts', posts);
 
 // start server
 app.listen(3000, function(req, res) {
-
+  console.log('server started');
 });
-
-
-//
